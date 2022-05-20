@@ -2,8 +2,10 @@ import './ExpenseDate.css'
 
 const ExpenseDate = props => {
   const monthValue = props.date.toLocaleString('en-US', { month: 'long' })
-  const dayValue = props.date.toLocaleString('en-US', { day: 'numeric' })
-  const yearValue = props.date.toLocaleString('en-US', { year: 'numeric' })
+  const dayValue = props.date.toLocaleString('en-US', { day: '2-digit' })
+  //const yearValue = props.date.toLocaleString('en-US', { year: 'numeric' }
+  const yearValue = props.date.getFullYear()
+  console.log(`Month ${monthValue} Day ${dayValue} Year ${yearValue}`)
 
 
   return (

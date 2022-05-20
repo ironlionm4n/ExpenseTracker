@@ -2,10 +2,21 @@ import React from 'react'
 import { InputForm } from './InputForm'
 import './NewExpense.css'
 
-export const NewExpense = () => {
+export const NewExpense = (props) => {
+  const handleSaveExpenseData = (inputFormData) => {
+    const newExpenseData = {
+      ...inputFormData,
+      id: Math.random().toString()
+    }
+    props.onAddExpense(newExpenseData)
+  }
+
+
+
   return (
     <div className='new-expense'>
-        <InputForm />
+    {/* onSaveExpenseData will take a function and be used to lift state up from InputForm */}
+        <InputForm onSaveExpenseData={handleSaveExpenseData} />
     </div>
   )
 }
