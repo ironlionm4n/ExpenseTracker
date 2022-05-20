@@ -16,7 +16,7 @@ export const NewExpense = (props) => {
   return (
     <div className='new-expense'>
     {/* onSaveExpenseData will take a function and be used to lift state up from InputForm */}
-        <InputForm onSaveExpenseData={handleSaveExpenseData} />
+        <InputForm onSaveExpenseData={handleSaveExpenseData} handleToggleInputForm={props.handleToggleInputForm}/>
     </div>
   )
 }

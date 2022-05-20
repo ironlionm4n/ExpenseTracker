@@ -56,9 +56,12 @@ export const InputForm = props => {
     event.preventDefault()
     // this function will be executed in NewExpense component because the pointer to the function is passed as a value of the prop
     props.onSaveExpenseData(userInput)
-    setUserInput({ title: '', amount: '', date: '' })
+    //setUserInput({ title: '', amount: '', date: '' })
   }
 
+    const handleCancel = () => {
+      props.handleToggleInputForm()
+    }
   return (
     <form onSubmit={handleSubmit}>
       <div className='new-expense__controls'>
@@ -92,6 +95,7 @@ export const InputForm = props => {
         </div>
       </div>
       <div className='new-expense__actions'>
+        <button type='submit' onClick={handleCancel}>Cancel</button>
         <button type='submit'>Add Expense</button>
       </div>
     </form>
