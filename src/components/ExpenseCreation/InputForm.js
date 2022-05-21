@@ -33,7 +33,7 @@ export const InputForm = props => {
     //   amountValue: event.target.value
     // })
     setUserInput(prevState => {
-      return { ...prevState, amount: event.target.value }
+      return { ...prevState, amount: +event.target.value }
     })
   }
 
@@ -60,8 +60,9 @@ export const InputForm = props => {
   }
 
     const handleCancel = () => {
-      props.handleToggleInputForm()
+      props.handleToggleInputForm(false)
     }
+
   return (
     <form onSubmit={handleSubmit}>
       <div className='new-expense__controls'>
@@ -95,7 +96,7 @@ export const InputForm = props => {
         </div>
       </div>
       <div className='new-expense__actions'>
-        <button type='submit' onClick={handleCancel}>Cancel</button>
+        <button type='button' onClick={handleCancel}>Cancel</button>
         <button type='submit'>Add Expense</button>
       </div>
     </form>
